@@ -1,9 +1,12 @@
 package com.ag.navigationcomponentsample.navigation
 
+import android.app.Activity
 import android.graphics.drawable.Drawable
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.ColorInt
 import androidx.annotation.StringRes
 import androidx.appcompat.graphics.drawable.DrawerArrowDrawable
 import androidx.appcompat.widget.Toolbar
@@ -120,12 +123,7 @@ private fun <T : ViewGroup> setupTitle(
     navDestination: NavDestination?,
     arguments: Bundle?
 ) {
-    toolbar.setTitle(navDestination?.let {
-        getLabelDestination(
-            it,
-            arguments
-        )
-    })
+    toolbar.setTitle(navDestination?.let { getLabelDestination(it, arguments) })
 }
 
 fun getLabelDestination(
@@ -168,4 +166,14 @@ private fun matchDestinations(destination: NavDestination?, destinationIds: Set<
     } while (currentDestination != null)
 
     return false
+}
+
+fun Fragment.changeStatusBarColor(@ColorInt color: Int) {
+    requireActivity().changeStatusBarColor(color)
+}
+
+fun Activity.changeStatusBarColor(@ColorInt color: Int) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        window.statusBarColor = color
+    }
 }

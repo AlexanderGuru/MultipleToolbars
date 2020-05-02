@@ -1,8 +1,10 @@
 package com.ag.navigationcomponentsample.activities
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.ag.navigationcomponentsample.R
+import com.ag.navigationcomponentsample.navigation.changeStatusBarColor
 import com.ag.navigationcomponentsample.navigation.setupWithNavController
 import kotlinx.android.synthetic.main.activity_bottom.*
 
@@ -10,6 +12,7 @@ class MultipleToolbarBottomActivity : AppCompatActivity(R.layout.activity_bottom
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        changeStatusBarColor(Color.TRANSPARENT)
         if (savedInstanceState == null) {
             setupBottomNavigationBar()
         }
@@ -25,12 +28,13 @@ class MultipleToolbarBottomActivity : AppCompatActivity(R.layout.activity_bottom
             listOf(R.navigation.first_host, R.navigation.second_host, R.navigation.third_host)
 
         // Setup the bottom navigation view with a list of navigation graphs
-        bottomNavigationView.setupWithNavController(
+        val controller = bottomNavigationView.setupWithNavController(
             navGraphIds = navGraphIds,
             fragmentManager = supportFragmentManager,
             containerId = R.id.navHostContainer,
             intent = intent
         )
+
     }
 
 }
