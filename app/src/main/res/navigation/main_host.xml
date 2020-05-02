@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_host.xml"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.ag.navigationcomponentsample.fragments.MainFragment"
+        android:label="MainFragment">
+
+        <action
+            android:id="@+id/action_mainFragment_to_drawerFragment"
+            app:destination="@id/drawerFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_mainFragment_to_comboFragment"
+            app:destination="@id/comboFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_mainFragment_to_bottomFragment"
+            app:destination="@id/bottomFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/drawerFragment"
+        android:name="com.ag.navigationcomponentsample.fragments.DrawerFragment"
+        android:label="DrawerFragment" />
+
+    <fragment
+        android:id="@+id/comboFragment"
+        android:name="com.ag.navigationcomponentsample.fragments.ComboFragment"
+        android:label="ComboFragment" />
+
+    <fragment
+        android:id="@+id/bottomFragment"
+        android:name="com.ag.navigationcomponentsample.fragments.BottomFragment"
+        android:label="BottomFragment" />
+
+</navigation>

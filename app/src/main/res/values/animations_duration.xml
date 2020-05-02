@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer name="fragment_animation_duration">600</integer>
+
+    <!-- __FRAGMENT_ANIMATIONS_DURATION__ !-->
+    <integer name="slide_in_left_animation_duration">@integer/fragment_animation_duration</integer>
+    <integer name="slide_in_right_animation_duration">@integer/fragment_animation_duration</integer>
+    <integer name="slide_out_left_animation_duration">@integer/fragment_animation_duration</integer>
+    <integer name="slide_out_right_animation_duration">@integer/fragment_animation_duration
+    </integer>
+
+</resources>

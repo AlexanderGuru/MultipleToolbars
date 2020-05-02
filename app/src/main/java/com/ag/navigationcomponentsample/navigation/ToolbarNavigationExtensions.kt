@@ -42,14 +42,17 @@ fun Fragment.setupToolbar(collapsingToolbarLayout: CollapsingToolbarLayout, tool
 }
 
 private fun NavController.lastDestination(clazz: Class<out Fragment>): NavDestination? {
-    return graph.find { destination ->
-        when (destination) {
-            is FragmentNavigator.Destination -> destination.className
-            is DialogFragmentNavigator.Destination -> destination.className
-            else -> throw IllegalStateException()
-        } == clazz.name
-    }
+    val isCurrent = currentDestination?.let { checkDestination(it, clazz) } ?: false
+    return if (isCurrent) currentDestination else graph.find { checkDestination(it, clazz) }
 }
+
+private fun checkDestination(destination: NavDestination, clazz: Class<out Fragment>) =
+    when (destination) {
+        is FragmentNavigator.Destination -> destination.className
+        is DialogFragmentNavigator.Destination -> destination.className
+        else -> throw IllegalStateException()
+    } == clazz.name
+
 
 private interface Wrapper<out T : ViewGroup> {
     val toolbar: T
@@ -58,8 +61,7 @@ private interface Wrapper<out T : ViewGroup> {
     fun setNavigationClickListener(clickListener: View.OnClickListener)
 }
 
-private open class ToolbarWrapper(override val toolbar: Toolbar) :
-    Wrapper<Toolbar> {
+private open class ToolbarWrapper(override val toolbar: Toolbar) : Wrapper<Toolbar> {
     override fun setNavigationIcon(icon: Drawable?, contentDescription: Int) {
         val useTransition = icon == null && toolbar.navigationIcon != null
         toolbar.navigationIcon = icon
@@ -135,7 +137,7 @@ fun getLabelDestination(
     if (!label.isNullOrEmpty()) {
         // Fill in the data pattern with the args to build a valid URI
         val title = StringBuffer()
-        val fillInPattern = Pattern.compile("\\{(.+?)}")
+        val fillInPattern = Pattern.compile("\\{(.+?)\\}")
         val matcher = fillInPattern.matcher(label)
         while (matcher.find()) {
             val argName = matcher.group(1)
