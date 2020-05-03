@@ -1,4 +1,4 @@
 rootProject.name='MultipleToolbars'
 include ':multiple_toolbars'
-include ':sample_multiple_toolbars_drawer'
-include ':sample_multiple_toolbars_bottom'
+include ':sample_drawer_navigation'
+include ':sample_bottom_navigation'
