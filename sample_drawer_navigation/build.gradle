@@ -30,7 +30,7 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation project(':multiple_toolbars')
+    implementation 'com.github.AlexanderGuru:MultipleToolbars:0.0.1-SNAPSHOT'
 
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
