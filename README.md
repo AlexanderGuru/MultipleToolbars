@@ -1,4 +1,4 @@
-# Multiple Toolbars Navigation Component
+# Navigation Component with multiple toolbars 
 
 
 [![](https://jitpack.io/v/AlexanderGuru/MultipleToolbars.svg)](https://jitpack.io/#AlexanderGuru/MultipleToolbars)
