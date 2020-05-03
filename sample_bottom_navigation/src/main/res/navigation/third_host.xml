@@ -4,7 +4,6 @@
     android:id="@+id/third_host"
     app:startDestination="@id/thirdFragment">
 
-
     <fragment
         android:id="@+id/thirdFragment"
         android:name="com.ag.sample_bottom_navigation.fragments.ThirdFragment"
@@ -14,6 +13,5 @@
         android:id="@id/iterationFragment"
         android:name="com.ag.sample_bottom_navigation.fragments.IterationFragment"
         android:label="IterationFragment" />
-
 
 </navigation>

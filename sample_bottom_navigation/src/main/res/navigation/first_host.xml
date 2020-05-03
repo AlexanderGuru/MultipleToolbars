@@ -4,11 +4,11 @@
     android:id="@+id/first_host"
     app:startDestination="@id/firstFragment">
 
-
     <fragment
         android:id="@+id/firstFragment"
         android:name="com.ag.sample_bottom_navigation.fragments.FirstFragment"
         android:label="FirstFragment" />
+
     <fragment
         android:id="@+id/iterationFragment"
         android:name="com.ag.sample_bottom_navigation.fragments.IterationFragment"
