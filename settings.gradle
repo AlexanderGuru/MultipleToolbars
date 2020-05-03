@@ -1,4 +1,4 @@
-rootProject.name='NavigationComponentSample'
-include ':sample_multiple_toolbars_drawer'
+rootProject.name='MultipleToolbars'
 include ':multiple_toolbars'
+include ':sample_multiple_toolbars_drawer'
 include ':sample_multiple_toolbars_bottom'
