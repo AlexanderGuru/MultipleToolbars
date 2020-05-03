@@ -1,1 +1,1 @@
-# NavigationComponentSample
+# Multiple Toolbars Navigation Component
