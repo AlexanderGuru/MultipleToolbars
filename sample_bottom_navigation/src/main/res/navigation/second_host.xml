@@ -10,7 +10,7 @@
         android:label="SecondFragment" />
 
     <fragment
-        android:id="@+id/iterationFragment2"
+        android:id="@id/iterationFragment"
         android:name="com.ag.sample_bottom_navigation.fragments.IterationFragment"
         android:label="IterationFragment" />
 
