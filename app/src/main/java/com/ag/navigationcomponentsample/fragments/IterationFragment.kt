@@ -46,13 +46,13 @@ class IterationFragment : Fragment(R.layout.fragment_iteration) {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        (requireActivity() as MultipleToolbarBottomActivity).setBottomColor(
-            getThemeColorPrimary(
-                requireView().context
-            )
-        )
-    }
+//    override fun onStart() {
+//        super.onStart()
+//        (requireActivity() as MultipleToolbarBottomActivity).setBottomColor(
+//            getThemeColorPrimary(
+//                requireView().context
+//            )
+//        )
+//    }
 
 }

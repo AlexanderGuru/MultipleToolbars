@@ -24,23 +24,28 @@ import com.ag.navigationcomponentsample.R
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import java.util.regex.Pattern
 
-fun Fragment.setupToolbar(toolbar: Toolbar) {
+
+fun Fragment.setupToolbar(toolbar: Toolbar, drawerLayout: DrawerLayout? = null) {
     val navController = findNavController()
     val wrapper = ToolbarWrapper(toolbar)
-    val appBarConfiguration = AppBarConfiguration(navController.graph)
+    val appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
     val currentDestination: NavDestination? = navController.lastDestination(this::class.java)
     toolbar.setNavigationOnClickListener { navController.navigateUp(appBarConfiguration) }
-    setupIcon(wrapper, currentDestination, appBarConfiguration, null)
+    setupIcon(wrapper, currentDestination, appBarConfiguration, drawerLayout)
     setupTitle(wrapper, currentDestination, arguments)
 }
 
-fun Fragment.setupToolbar(collapsingToolbarLayout: CollapsingToolbarLayout, toolbar: Toolbar) {
+fun Fragment.setupToolbar(
+    collapsingToolbarLayout: CollapsingToolbarLayout,
+    toolbar: Toolbar,
+    drawerLayout: DrawerLayout? = null
+) {
     val navController = findNavController()
     val wrapper = CollapsingToolbarLayoutWrapper(collapsingToolbarLayout, toolbar)
-    val appBarConfiguration = AppBarConfiguration(navController.graph)
+    val appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
     val currentDestination: NavDestination? = navController.lastDestination(this::class.java)
     toolbar.setNavigationOnClickListener { navController.navigateUp(appBarConfiguration) }
-    setupIcon(wrapper, currentDestination, appBarConfiguration, null)
+    setupIcon(wrapper, currentDestination, appBarConfiguration, drawerLayout)
     setupTitle(wrapper, currentDestination, arguments)
 }
 

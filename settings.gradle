@@ -1,2 +1,4 @@
 rootProject.name='NavigationComponentSample'
-include ':app'
+include ':sample_multiple_toolbars_drawer'
+include ':multiple_toolbars'
+include ':sample_multiple_toolbars_bottom'

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/third_host"
+    app:startDestination="@id/thirdFragment">
+
+
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="com.ag.sample_multiple_toolbars_bottom.fragments.ThirdFragment"
+        android:label="ThirdFragment" />
+
+    <fragment
+        android:id="@+id/iterationFragment3"
+        android:name="com.ag.sample_multiple_toolbars_bottom.fragments.IterationFragment"
+        android:label="IterationFragment" />
+
+
+</navigation>

@@ -1,0 +1,63 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="BaseFragmentTheme" parent="AppTheme.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+
+        <item name="toolbarStyle">@style/Toolbar</item>
+        //Toolbar textSize, textColor etc. (we use Override Widget.AppCompat.Toolbar)
+        <item name="android:textColorSecondary">@android:color/white</item>
+        // Toolbar back arrow color
+    </style>
+
+    <style name="Toolbar" parent="Widget.AppCompat.Toolbar">// we use this style to getting tabs
+        font parameters for toolbar
+        <item name="titleTextAppearance">@style/ToolbarText</item>
+        <item name="android:background">?android:colorPrimaryDark</item>
+    </style>
+
+    <style name="ToolbarText" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:fontFamily">font/rmedium</item>
+        <item name="android:textColor">@android:color/white</item>
+        //toolbarTextColor
+        <item name="android:textSize">18sp</item>
+    </style>
+    // text parameters
+
+    <!-- First Fragment theme. -->
+    <style name="FirstFragmentTheme" parent="BaseFragmentTheme">
+        <item name="colorPrimaryDark">@color/blue_800</item>
+        <item name="colorPrimary">@color/blue_800</item>
+    </style>
+
+    <!-- Second Fragment theme. -->
+    <style name="SecondFragmentTheme" parent="BaseFragmentTheme">
+        <item name="colorPrimaryDark">@color/green_800</item>
+        <item name="colorPrimary">@color/green_800</item>
+    </style>
+
+    <!-- Third Fragment theme. -->
+    <style name="ThirdFragmentTheme" parent="BaseFragmentTheme">
+        <item name="colorPrimaryDark">@color/red_800</item>
+        <item name="colorPrimary">@color/red_800</item>
+    </style>
+
+
+</resources>

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.ag.navigationcomponentsample.R
 import com.ag.navigationcomponentsample.activities.MultipleToolbarBottomActivity
 import com.ag.navigationcomponentsample.models.IterationFragmentArgs
@@ -29,14 +30,14 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        (requireActivity() as MultipleToolbarBottomActivity).setBottomColor(
-            getThemeColorPrimary(
-                requireView().context
-            )
-        )
-    }
+//    override fun onStart() {
+//        super.onStart()
+//        (requireActivity() as MultipleToolbarBottomActivity).setBottomColor(
+//            getThemeColorPrimary(
+//                requireView().context
+//            )
+//        )
+//    }
 
 
 }

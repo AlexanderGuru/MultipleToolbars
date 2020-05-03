@@ -28,12 +28,12 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        (requireActivity() as MultipleToolbarBottomActivity).setBottomColor(
-            getThemeColorPrimary(
-                requireView().context
-            )
-        )
-    }
+//    override fun onStart() {
+//        super.onStart()
+//        (requireActivity() as MultipleToolbarBottomActivity).setBottomColor(
+//            getThemeColorPrimary(
+//                requireView().context
+//            )
+//        )
+//    }
 }

@@ -28,12 +28,12 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        (requireActivity() as MultipleToolbarBottomActivity).setBottomColor(
-            getThemeColorPrimary(
-                requireView().context
-            )
-        )
-    }
+//    override fun onStart() {
+//        super.onStart()
+//        (requireActivity() as MultipleToolbarBottomActivity).setBottomColor(
+//            getThemeColorPrimary(
+//                requireView().context
+//            )
+//        )
+//    }
 }
