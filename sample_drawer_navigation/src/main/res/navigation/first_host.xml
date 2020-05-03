@@ -7,17 +7,7 @@
     <fragment
         android:id="@+id/firstFragment"
         android:name="com.ag.sample_drawer_navigation.fragments.FirstFragment"
-        android:label="FirstFragment">
-
-        <action
-            android:id="@+id/action_firstFragment_to_iterationFragment"
-            app:destination="@id/iterationFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-
-    </fragment>
+        android:label="FirstFragment" />
 
     <fragment
         android:id="@+id/iterationFragment"
