@@ -8,4 +8,10 @@
         android:id="@+id/secondFragment"
         android:name="com.ag.navigationcomponentsample.fragments.SecondFragment"
         android:label="SecondFragment" />
+
+    <fragment
+        android:id="@id/iterationFragment"
+        android:name="com.ag.navigationcomponentsample.fragments.IterationFragment"
+        android:label="IterationFragment" />
+
 </navigation>
