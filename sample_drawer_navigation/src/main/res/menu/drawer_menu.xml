@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/host_group"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/first_host"
+            android:icon="@drawable/ic_first"
+            android:title="First" />
 
-    <item
-        android:id="@+id/first_host"
-        android:icon="@drawable/ic_first"
-        android:title="First" />
+        <item
+            android:id="@+id/second_host"
+            android:icon="@drawable/ic_second"
+            android:title="Second" />
 
-    <item
-        android:id="@+id/second_host"
-        android:icon="@drawable/ic_second"
-        android:title="Second" />
+        <item
+            android:id="@+id/third_host"
+            android:icon="@drawable/ic_third"
+            android:title="Third" />
+        android:title="@string/histories" />
+    </group>
 
-    <item
-        android:id="@+id/third_host"
-        android:icon="@drawable/ic_third"
-        android:title="Third" />
 
 </menu>
