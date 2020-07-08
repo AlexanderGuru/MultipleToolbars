@@ -6,6 +6,7 @@ import android.view.MenuItem
 import androidx.core.util.forEach
 import androidx.core.util.set
 import androidx.core.view.get
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -68,6 +69,8 @@ fun NavigationView.setupWithNavController(
 
     // When a navigation item is selected
     setNavigationItemSelectedListener { item ->
+
+        (parent as? DrawerLayout)?.closeDrawer(this)
 
         // Optional: on item reselected, pop back stack to the destination of the graph
         clearBackStackIfItemReselected(item, graphIdToTagMap, fragmentManager)

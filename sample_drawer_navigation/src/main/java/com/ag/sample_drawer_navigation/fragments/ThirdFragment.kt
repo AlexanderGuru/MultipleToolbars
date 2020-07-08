@@ -22,7 +22,7 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
         btn.setOnClickListener {
             findNavController().navigate(
                 R.id.iterationFragment,
-                IterationFragmentArgs(R.style.ThirdFragmentTheme, 0),
+                IterationFragmentArgs(R.style.ThirdFragmentTheme, 1),
                 defAnim
             )
         }
