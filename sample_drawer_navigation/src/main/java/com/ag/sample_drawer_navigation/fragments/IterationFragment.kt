@@ -34,7 +34,6 @@ class IterationFragment : Fragment(R.layout.fragment_iteration) {
         super.onViewCreated(view, savedInstanceState)
         setupToolbar(toolbar, (requireActivity() as DrawerActivity).getDrawerLayout())
 
-
         iterationText.text = args!!.numberIteration.toString()
 
         btn.setOnClickListener {

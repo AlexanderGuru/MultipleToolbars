@@ -18,11 +18,10 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
         super.onViewCreated(view, savedInstanceState)
         setupToolbar(toolbar, (requireActivity() as DrawerActivity).getDrawerLayout())
 
-
         btn.setOnClickListener {
             findNavController().navigate(
                 R.id.iterationFragment,
-                IterationFragmentArgs(R.style.SecondFragmentTheme, 0),
+                IterationFragmentArgs(R.style.SecondFragmentTheme, 1),
                 defAnim
             )
         }

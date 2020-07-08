@@ -22,10 +22,9 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
         btn.setOnClickListener {
             findNavController().navigate(
                 R.id.iterationFragment,
-                IterationFragmentArgs(R.style.FirstFragmentTheme, 0),
+                IterationFragmentArgs(R.style.FirstFragmentTheme, 1),
                 defAnim
             )
         }
     }
-
 }
