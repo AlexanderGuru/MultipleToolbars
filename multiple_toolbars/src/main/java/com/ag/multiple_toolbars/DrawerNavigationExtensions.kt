@@ -2,6 +2,7 @@ package com.ag.multiple_toolbars
 
 import android.content.Intent
 import android.util.SparseArray
+import android.view.MenuItem
 import androidx.core.util.forEach
 import androidx.core.util.set
 import androidx.core.view.get
@@ -67,6 +68,10 @@ fun NavigationView.setupWithNavController(
 
     // When a navigation item is selected
     setNavigationItemSelectedListener { item ->
+
+        // Optional: on item reselected, pop back stack to the destination of the graph
+        clearBackStackIfItemReselected(item, graphIdToTagMap, fragmentManager)
+
         // Don't do anything if the state is state has already been saved.
         if (fragmentManager.isStateSaved) {
             false
@@ -136,6 +141,21 @@ fun NavigationView.setupWithNavController(
     }
 
     return selectedNavController
+}
+
+private fun NavigationView.clearBackStackIfItemReselected(
+    item: MenuItem,
+    graphIdToTagMap: SparseArray<String>,
+    fragmentManager: FragmentManager
+) {
+    if (getCheckedItemId() == item.itemId) {
+        val newlySelectedItemTag = graphIdToTagMap[item.itemId]
+        val selectedFragment =
+            fragmentManager.findFragmentByTag(newlySelectedItemTag) as NavHostFragment
+        val navController = selectedFragment.navController
+        // Pop the back stack to the start destination of the current navController graph
+        navController.popBackStack(navController.graph.startDestination, false)
+    }
 }
 
 private fun NavigationView.getCheckedItemId() = checkedItem?.itemId ?: menu[0].itemId
