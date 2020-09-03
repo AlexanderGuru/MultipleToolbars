@@ -14,6 +14,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
+import androidx.navigation.NavGraph
 import androidx.navigation.fragment.DialogFragmentNavigator
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.findNavController
@@ -50,8 +51,20 @@ fun Fragment.setupToolbar(
 
 private fun NavController.lastDestination(clazz: Class<out Fragment>): NavDestination? {
     val isCurrent = currentDestination?.let { checkDestination(it, clazz) } ?: false
-    return if (isCurrent) currentDestination else graph.find { checkDestination(it, clazz) }
+    return if (isCurrent) currentDestination else createFlatList(graph).find {
+        checkDestination(
+            it,
+            clazz
+        )
+    }
 }
+
+fun createFlatList(graph: Iterable<NavDestination>) =
+    mutableListOf<NavDestination>().also { navDestinations ->
+        graph.forEach {
+            if (it is NavGraph) navDestinations.addAll(it.toList()) else navDestinations.add(it)
+        }
+    }
 
 private fun checkDestination(destination: NavDestination, clazz: Class<out Fragment>) =
     when (destination) {
