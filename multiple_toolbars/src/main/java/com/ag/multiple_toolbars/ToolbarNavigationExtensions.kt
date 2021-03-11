@@ -14,6 +14,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
+import androidx.navigation.NavGraph
 import androidx.navigation.fragment.DialogFragmentNavigator
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.findNavController
@@ -22,7 +23,6 @@ import androidx.navigation.ui.navigateUp
 import androidx.transition.TransitionManager
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import java.util.regex.Pattern
-
 
 fun Fragment.setupToolbar(toolbar: Toolbar, drawerLayout: DrawerLayout? = null) {
     val navController = findNavController()
@@ -50,16 +50,33 @@ fun Fragment.setupToolbar(
 
 private fun NavController.lastDestination(clazz: Class<out Fragment>): NavDestination? {
     val isCurrent = currentDestination?.let { checkDestination(it, clazz) } ?: false
-    return if (isCurrent) currentDestination else graph.find { checkDestination(it, clazz) }
+    return if (isCurrent) {
+        currentDestination
+    } else {
+        val allDestinations = createFlatList(graph)
+        allDestinations.find { checkDestination(it, clazz) }
+    }
 }
 
-private fun checkDestination(destination: NavDestination, clazz: Class<out Fragment>) =
-    when (destination) {
+private fun createFlatList(graph: Iterable<NavDestination>): Iterable<NavDestination> {
+    return mutableListOf<NavDestination>().also { navDestinations ->
+        graph.forEach {
+            if (it is NavGraph) {
+                navDestinations += createFlatList(it)
+            } else {
+                navDestinations += it
+            }
+        }
+    }
+}
+
+private fun checkDestination(destination: NavDestination, clazz: Class<out Fragment>): Boolean {
+    return when (destination) {
         is FragmentNavigator.Destination -> destination.className
         is DialogFragmentNavigator.Destination -> destination.className
         else -> throw IllegalStateException()
     } == clazz.name
-
+}
 
 private interface Wrapper<out T : ViewGroup> {
     val toolbar: T
