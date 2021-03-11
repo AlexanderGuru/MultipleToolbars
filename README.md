@@ -9,5 +9,5 @@
 	}
   
 	dependencies {
-	    implementation 'com.github.AlexanderGuru:MultipleToolbars:0.0.2'
+	    implementation 'com.github.AlexanderGuru:MultipleToolbars:0.0.3'
 	}
